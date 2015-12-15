@@ -6,7 +6,7 @@
 package quiz;
 
 import java.util.Scanner;
-
+ 
 /**
  *
  * @author web
