@@ -14,12 +14,14 @@ import java.util.Scanner;
 public class Addition {
     
     
-    int[] firstNumbers ;
-    int[] secondNumbers;
-    int[] correctAnswers;
-    int[] userAnswers;
-    int userPoints;
+    private int[] firstNumbers ;
+    private int[] secondNumbers;
+    private int[] correctAnswers;
+    private int[] userAnswers;
+    private int userPoints;
     private int nrOfQuestion;
+    private int nrOfCorrectAnswers;
+    private double additionRatings;
     
     public Addition( int nrOfQuestion){
         
@@ -28,6 +30,8 @@ public class Addition {
        this.secondNumbers =new int[nrOfQuestion];
        this.correctAnswers = new int[nrOfQuestion];
        this.userAnswers = new int[nrOfQuestion];
+       this.nrOfCorrectAnswers =getNrOfCorrectAnswers();
+       this.additionRatings = getAdditionRatings();
     
         runQuiz( nrOfQuestion);
         
@@ -46,11 +50,31 @@ public class Addition {
                 userAnswers[i] = sc.nextInt();
                 setUserPoints(correctAnswers[i], userAnswers[i]);
                
+              
+               
         }
-        //System.out.println("You made " +userPoints + " points");
+        System.out.println("You succeded " +additionRatings + "% of points" + "rsp ok"  + nrOfCorrectAnswers);
         replay(nrOfQuestion);
     }
-    
+   private void setAdditionRatings(int nrOfCorrectAnswers, int nrOfQuestion){
+       System.out.println("nrCA" + nrOfCorrectAnswers);
+       System.out.println("nrQ"+nrOfQuestion);
+        additionRatings = nrOfCorrectAnswers * 100 / nrOfQuestion ;
+   }
+   
+   public double getAdditionRatings(){
+       System.out.println("test");
+       return additionRatings;
+   }
+   
+   private void setNrOfCorrectAnswers( ){
+             System.out.println("plus unu");
+       nrOfCorrectAnswers += 1;
+   }
+   public int getNrOfCorrectAnswers(){
+       return nrOfCorrectAnswers;
+   }
+   
    private void setNrOfQuestion(int nrOfQuestion){
        nrOfQuestion = nrOfQuestion;
    }
@@ -75,15 +99,19 @@ public class Addition {
         if(correctAnswer == userAnswer){
             
             userPoints += 10;
+      
+          setNrOfCorrectAnswers();
         }
     }
+    
 
+    
    private void replay(int nrOfQuestion){
         for(int i=0; i<nrOfQuestion; i++){
             System.out.println( "Question: " + firstNumbers[i] +" + " +secondNumbers[i] + " = " + correctAnswers[i]+ " your answer " + userAnswers[i]);
         }
         System.out.println("You have scored: " + userPoints + " points");
-     System.exit(1);
+     
    }
     
 }
