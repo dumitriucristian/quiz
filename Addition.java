@@ -11,14 +11,14 @@ import java.util.Scanner;
 public class Addition {
     
     
-    private int[] firstNumbers ;
-    private int[] secondNumbers;
-    private int[] correctAnswers;
-    private int[] userAnswers;
-    private int userPoints;
+    public int[] firstNumbers ;
+    public int[] secondNumbers;
+    public int[] correctAnswers;
+    public int[] userAnswers;
+    public int userPoints;
     private int nrOfQuestion;
-    private int nrOfCorrectAnswers;
-    private double additionRatings;
+    public int nrOfCorrectAnswers;
+    public double additionRatings;
     
     public Addition( int nrOfQuestion){
         
@@ -33,8 +33,8 @@ public class Addition {
         runQuiz( nrOfQuestion);
         
     }
-   //run quiz 
-   private void runQuiz(int nrOfQuestion){
+   //is public because it's overiden by subclas
+   public void runQuiz(int nrOfQuestion){
             //for each question 
             for(int i=0; i<nrOfQuestion; i++){
               //generate first number
@@ -62,18 +62,18 @@ public class Addition {
         replay(nrOfQuestion);
     }
    
-   private void setAdditionRatings(int nrOfCorrectAnswers, int nrOfQuestion){
+   public void setAdditionRatings(int nrOfCorrectAnswers, int nrOfQuestion){
 
         additionRatings = nrOfCorrectAnswers * 100 / nrOfQuestion ;
    }
    
    public double getAdditionRatings(){
-       System.out.println("test");
+
        return additionRatings;
    }
    
    //increment nr of correct answers
-   private void setNrOfCorrectAnswers( ){
+   public void setNrOfCorrectAnswers( ){
 
        nrOfCorrectAnswers += 1;
    }
@@ -89,19 +89,20 @@ public class Addition {
         return nrOfQuestion;
     }
     
-    private int getRandom(){
+    public int getRandom(){
         int getRandom = (int) (Math.random()*99+1);
         return getRandom;
     }
     
     private int correctAnswer( int nrOne, int nrTwo){
+
         int correctAnswer = nrOne + nrTwo;
-        //System.out.println("corectAnswer is: " +  correctAnswer);
         return correctAnswer;
     }
+    
     //if is a correct answer add 10 points to user
-    private void setUserPoints(int correctAnswer, int userAnswer){
-       // System.out.println("Corect answer is: " + correctAnswer + " Your answer was: " + userAnswer);
+    public void setUserPoints(int correctAnswer, int userAnswer){
+
         if(correctAnswer == userAnswer){
             
             userPoints += 10;

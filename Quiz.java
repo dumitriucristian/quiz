@@ -21,14 +21,16 @@ public class Quiz {
     //default quiz with no params has 5 question
     public Quiz(){
         int nrOfQuestion = 5;
-        new Addition(nrOfQuestion);
+        //new Addition(nrOfQuestion);
+
     }
     
     //quiz with different nr of question
     public Quiz(int nrOfQuestion){
         //set nr of question;
         this.nrOfQuestion = getNrOfQuestion();
-        new Addition(nrOfQuestion );
+        //new Addition(nrOfQuestion );
+        new Multiplication(nrOfQuestion);
     }
     
     //question setter
