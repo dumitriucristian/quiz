@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *Add two numbers
+*calculate rate of success
  */
 package quiz;
 
@@ -49,16 +48,17 @@ public class Addition {
                 Scanner sc = new Scanner(System.in);
                 userAnswers[i] = sc.nextInt();
                 setUserPoints(correctAnswers[i], userAnswers[i]);
+    
                
-              
-               
-        }
+            }
+        //calculate ratings
+        setAdditionRatings(nrOfCorrectAnswers, nrOfQuestion);
         System.out.println("You succeded " +additionRatings + "% of points" + "rsp ok"  + nrOfCorrectAnswers);
         replay(nrOfQuestion);
     }
+   
    private void setAdditionRatings(int nrOfCorrectAnswers, int nrOfQuestion){
-       System.out.println("nrCA" + nrOfCorrectAnswers);
-       System.out.println("nrQ"+nrOfQuestion);
+
         additionRatings = nrOfCorrectAnswers * 100 / nrOfQuestion ;
    }
    
