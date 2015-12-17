@@ -1,15 +1,13 @@
 /*
- *Add two numbers
+ *@Author  Cristian Dumitriu
+*Add two numbers
 *calculate rate of success
  */
 package quiz;
 
 import java.util.Scanner;
  
-/**
- *
- * @author web
- */
+
 public class Addition {
     
     
@@ -35,25 +33,32 @@ public class Addition {
         runQuiz( nrOfQuestion);
         
     }
-    
+   //run quiz 
    private void runQuiz(int nrOfQuestion){
+            //for each question 
             for(int i=0; i<nrOfQuestion; i++){
-              
+              //generate first number
                firstNumbers[i]=getRandom();
+               //generate second number
                secondNumbers[i]=getRandom();
+               //generate the correct answer
                correctAnswers[i] = correctAnswer( firstNumbers[i],secondNumbers[i]);
-       
+               
+               //ask the question
                 System.out.println("What is the sum of:" +firstNumbers[i] +" + "+ secondNumbers[i]);
                 
+                //require input
                 Scanner sc = new Scanner(System.in);
+                //save the answer
                 userAnswers[i] = sc.nextInt();
+                //check the answer and add new points if correct
                 setUserPoints(correctAnswers[i], userAnswers[i]);
     
-               
-            }
+             }
         //calculate ratings
         setAdditionRatings(nrOfCorrectAnswers, nrOfQuestion);
         System.out.println("You succeded " +additionRatings + "% of points" + "rsp ok"  + nrOfCorrectAnswers);
+        //replay the answer and the questions
         replay(nrOfQuestion);
     }
    
@@ -67,8 +72,9 @@ public class Addition {
        return additionRatings;
    }
    
+   //increment nr of correct answers
    private void setNrOfCorrectAnswers( ){
-             System.out.println("plus unu");
+
        nrOfCorrectAnswers += 1;
    }
    public int getNrOfCorrectAnswers(){
@@ -93,7 +99,7 @@ public class Addition {
         //System.out.println("corectAnswer is: " +  correctAnswer);
         return correctAnswer;
     }
-    
+    //if is a correct answer add 10 points to user
     private void setUserPoints(int correctAnswer, int userAnswer){
        // System.out.println("Corect answer is: " + correctAnswer + " Your answer was: " + userAnswer);
         if(correctAnswer == userAnswer){
@@ -104,8 +110,9 @@ public class Addition {
         }
     }
     
-
-    
+/**
+ *  Replay each question with correspondent response
+ */  
    private void replay(int nrOfQuestion){
         for(int i=0; i<nrOfQuestion; i++){
             System.out.println( "Question: " + firstNumbers[i] +" + " +secondNumbers[i] + " = " + correctAnswers[i]+ " your answer " + userAnswers[i]);
